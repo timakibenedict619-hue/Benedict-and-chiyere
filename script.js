@@ -234,19 +234,19 @@ const hour = new Date().getHours();
 if(hour < 12){
 
 heroTitle.innerHTML =
-"Good Morning, Beautiful ❤️";
+"Good Morning, My Sweet Chiyere. 🥹❤️ ❤️";
 
 }
 else if(hour < 17){
 
 heroTitle.innerHTML =
-"Good Afternoon, Beautiful ❤️";
+"Good Afternoon, My Sweet Chiyere. 🥹❤️ ❤️";
 
 }
 else{
 
 heroTitle.innerHTML =
-"Good Evening, Beautiful ❤️";
+"My Sweet Chiyere. 🥹❤️";
 
 }
 
