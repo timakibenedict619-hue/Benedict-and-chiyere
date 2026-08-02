@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login • Benedict & Chiyere ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+    linear-gradient(
+    rgba(255,182,193,.35),
+    rgba(255,255,255,.5)),
+    url("IMG-20260726-WA0060(2).jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.container{
+
+    width:90%;
+    max-width:420px;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.3);
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+}
+
+.logo{
+
+    text-align:center;
+    margin-bottom:25px;
+
+}
+
+.logo h1{
+
+    font-family:'Great Vibes',cursive;
+    font-size:48px;
+    color:white;
+
+}
+
+.logo p{
+
+    color:white;
+    margin-top:5px;
+
+}
+
+.input-group{
+
+    margin-bottom:18px;
+
+}
+
+.input-group label{
+
+    display:block;
+    margin-bottom:8px;
+    color:white;
+    font-weight:600;
+
+}
+
+.input-group input{
+
+    width:100%;
+    padding:14px;
+
+    border:none;
+    outline:none;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+}
+
+.login-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#ff4f81;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.links{
+
+    text-align:center;
+    margin-top:20px;
+
+}
+
+.links a{
+
+    color:white;
+    text-decoration:none;
+
+}
+
+.links a:hover{
+
+    text-decoration:underline;
+
+}
+
+#errorMessage{
+
+    margin-top:15px;
+    text-align:center;
+    color:#ffdddd;
+    font-size:14px;
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="logo">
+
+            <h1>Benedict ❤️ Chiyere</h1>
+
+            <p>Welcome to our private space</p>
+
+        </div>
+
+        <form id="loginForm">
+
+            <div class="input-group">
+
+                <label>Email</label>
+
+                <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Password</label>
+
+                <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required>
+
+            </div>
+
+            <button
+            type="submit"
+            class="login-btn">
+
+                Login ❤️
+
+            </button>
+
+            <div id="errorMessage"></div>
+
+        </form>
+
+        <div class="links">
+
+            <a href="signup.html">
+                Create an Account ❤️
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module">
+
+import {
+signInWithEmailAndPassword,
+onAuthStateChanged
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import { auth } from "./firebase.js";
+
+const loginForm =
+document.getElementById("loginForm");
+
+const errorMessage =
+document.getElementById("errorMessage");
+
+onAuthStateChanged(auth,(user)=>{
+
+    if(user){
+
+        window.location.href =
+        "ourspace.html";
+
+    }
+
+});
+
+loginForm.addEventListener("submit",
+
+async(e)=>{
+
+e.preventDefault();
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+try{
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+window.location.href =
+"ourspace.html";
+
+}catch(error){
+
+errorMessage.textContent =
+error.message;
+
+}
+
+});
+
+</script>
+
+</body>
+  </html>
