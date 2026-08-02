@@ -220,13 +220,14 @@ const observer = new IntersectionObserver(entries => {
     });
 
 });
-
 cards.forEach(card => {
 
     card.style.opacity = "0";
+    card.style.transform = "translateY(40px)";
+    card.style.transition = "all 0.8s ease";
 
-    card.style.transform =
-        "translateY(40px)";
+    observer.observe(card);
 
-    card.style.transition =
+});
+
        
