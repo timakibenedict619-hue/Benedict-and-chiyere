@@ -15,18 +15,26 @@ const thinkBtn = document.getElementById("thinkBtn");
 
 yesBtn.addEventListener("click", () => {
 
-    popup.style.display = "flex";
-
-    popupText.innerHTML = `
-        ❤️ Thank you for saying YES! ❤️<br><br>
-        You just made me the happiest person.<br>
-        I promise to cherish, respect, support and love you.<br><br>
-        This is the beginning of our beautiful journey together. 🌹
-    `;
-
     createConfetti();
 
+    setTimeout(() => {
+
+        window.location.href = "welcome.html";
+
+    }, 3000);
+
 });
+
+
+    
+           
+    
+        
+
+
+    
+
+
 
 // ================================
 // THINK Button
