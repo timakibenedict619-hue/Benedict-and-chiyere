@@ -1,6 +1,6 @@
 // ============================================================
 // home.js
-// Benedict ❤️ Chiyere
+// Benedict ❤️ Favour
 // ============================================================
 
 import { auth, db } from "./firebase.js";
@@ -152,7 +152,7 @@ if (logoutBtn) {
 // ============================================================
 
 const relationshipDate =
-  new Date("2026-08-05T20:00:00");
+  new Date("2025-02-12T20:00:00");
 
 
 function updateCountdown() {
