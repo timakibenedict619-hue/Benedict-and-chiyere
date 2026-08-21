@@ -532,6 +532,25 @@
       opacity: 0.55;
       line-height: 1.5;
     }
+   /* ========================= ACTIVE CALL UI ========================= */
+.video-container { position: relative; width: 100%; max-width: 600px; height: 350px; margin: 20px auto; border-radius: 20px; overflow: hidden; background: #050505; border: 1px solid rgba(255,255,255,0.12); }
+.remote-video { width: 100%; height: 100%; object-fit: cover; background: #050505; }
+.local-video { position: absolute; right: 12px; bottom: 12px; width: 120px; height: 160px; object-fit: cover; border-radius: 14px; background: #111; border: 2px solid rgba(255,255,255,0.8); }
+.active-call-controls { display: flex; justify-content: center; align-items: center; gap: 14px; margin-top: 18px; }
+.call-control { width: 52px; height: 52px; border: none; border-radius: 50%; background: rgba(255,255,255,0.12); color: white; font-size: 20px; cursor: pointer; transition: 0.2s ease; }
+.call-control:hover { transform: scale(1.05); background: rgba(255,255,255,0.18); }
+.call-control.end-call { background: #e53935; transform: rotate(135deg); }
+.incoming-call { margin-top: 25px; padding: 25px 18px; border-radius: 22px; background: rgba(233,30,99,0.14); border: 1px solid rgba(255,143,180,0.2); text-align: center; }
+.incoming-icon { font-size: 42px; margin-bottom: 10px; animation: heartbeat 1.2s infinite; }
+.incoming-call h3 { margin-bottom: 7px; }
+.incoming-call p { font-size: 13px; opacity: 0.65; margin-bottom: 20px; }
+.incoming-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.call-button.reject { background: #b71c1c; }
+.call-status-active { color: #ff9bbb; font-weight: 600; }
+@media (max-width: 430px) {
+.video-container { height: 280px; }
+.local-video { width: 90px; height: 120px; }
+} 
 
     /* =========================
        MEMORIES
@@ -1057,77 +1076,217 @@
 
 
     <!-- =========================
-         CALL PANEL
-    ========================== -->
+     CALL PANEL
+========================= -->
 
-    <section
-      class="feature-panel glass"
-      id="callPanel"
+<section
+  class="feature-panel glass"
+  id="callPanel"
+>
+
+  <div class="panel-header">
+
+    <h2>
+      📞 Our Calls
+    </h2>
+
+    <button
+      class="close-panel"
+      data-close="callPanel"
+      type="button"
     >
+      ✕
+    </button>
 
-      <div class="panel-header">
+  </div>
 
-        <h2>
-          📞 Our Calls
-        </h2>
+
+  <div class="panel-content">
+
+    <div class="call-card">
+
+      <img
+        src="assets/images/couple.jpg"
+        class="call-photo"
+        id="callPhoto"
+        alt="Benedict and Chiyere"
+      >
+
+      <h3 id="callTitle">
+        Just You & Me ❤️
+      </h3>
+
+      <p id="callStatus">
+        Start a private call.
+      </p>
+
+
+      <!-- CALL BUTTONS -->
+
+      <div
+        class="call-buttons"
+        id="startCallButtons"
+      >
 
         <button
-          class="close-panel"
-          data-close="callPanel"
+          class="call-button"
+          id="voiceCallBtn"
+          type="button"
         >
-          ✕
+          📞 Voice Call
+        </button>
+
+        <button
+          class="call-button video"
+          id="videoCallBtn"
+          type="button"
+        >
+          📹 Video Call
         </button>
 
       </div>
 
 
-      <div class="panel-content">
+      <!-- =========================
+           VIDEO AREA
+      ========================== -->
 
-        <div class="call-card">
+      <div
+        class="video-container"
+        id="videoContainer"
+        style="display:none;"
+      >
 
-          <img
-            src="assets/images/couple.jpg"
-            class="call-photo"
-            alt="Benedict and Chiyere"
+        <!-- Remote video -->
+
+        <video
+          id="remoteVideo"
+          class="remote-video"
+          autoplay
+          playsinline
+        ></video>
+
+
+        <!-- Local video -->
+
+        <video
+          id="localVideo"
+          class="local-video"
+          autoplay
+          muted
+          playsinline
+        ></video>
+
+      </div>
+
+
+      <!-- Remote audio for voice calls -->
+
+      <audio
+        id="remoteAudio"
+        autoplay
+      ></audio>
+
+
+      <!-- =========================
+           ACTIVE CALL CONTROLS
+      ========================== -->
+
+      <div
+        class="active-call-controls"
+        id="activeCallControls"
+        style="display:none;"
+      >
+
+        <button
+          class="call-control"
+          id="muteCallBtn"
+          type="button"
+        >
+          🎤
+        </button>
+
+        <button
+          class="call-control"
+          id="cameraCallBtn"
+          type="button"
+        >
+          📹
+        </button>
+
+        <button
+          class="call-control end-call"
+          id="endCallBtn"
+          type="button"
+        >
+          ☎️
+        </button>
+
+      </div>
+
+
+      <!-- =========================
+           INCOMING CALL
+      ========================== -->
+
+      <div
+        class="incoming-call"
+        id="incomingCall"
+        style="display:none;"
+      >
+
+        <div class="incoming-icon">
+          📞
+        </div>
+
+        <h3>
+          Incoming Call ❤️
+        </h3>
+
+        <p id="incomingCallText">
+          Someone is calling you...
+        </p>
+
+        <div class="incoming-buttons">
+
+          <button
+            class="call-button"
+            id="answerCallBtn"
+            type="button"
           >
+            ✅ Answer
+          </button>
 
-          <h3>
-            Just You & Me ❤️
-          </h3>
-
-          <p>
-            Talk to each other privately.
-          </p>
-
-          <div class="call-buttons">
-
-            <button
-              class="call-button"
-              id="voiceCallBtn"
-            >
-              📞 Voice Call
-            </button>
-
-            <button
-              class="call-button video"
-              id="videoCallBtn"
-            >
-              📹 Video Call
-            </button>
-
-          </div>
-
-          <div class="call-notice">
-            Calling will be connected through the private
-            calling system we will add next.
-          </div>
+          <button
+            class="call-button reject"
+            id="rejectCallBtn"
+            type="button"
+          >
+            ❌ Reject
+          </button>
 
         </div>
 
       </div>
 
-    </section>
 
+      <div
+        class="call-notice"
+        id="callNotice"
+      >
+        Calls use your microphone and, for video,
+        your camera. Your browser will ask for permission.
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+2. Add this CSS inside the "<style>" section
+
+Put it underneath your existing ".call-notice" CSS.
 
     <!-- =========================
          MEMORIES PANEL
