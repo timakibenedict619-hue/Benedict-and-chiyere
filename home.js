@@ -152,7 +152,7 @@ if (logoutBtn) {
 // ============================================================
 
 const relationshipDate =
-  new Date("2026-08-10T20:00:00");
+  new Date("2026-08-05T20:00:00");
 
 
 function updateCountdown() {
