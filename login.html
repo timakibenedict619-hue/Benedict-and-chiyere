@@ -21,26 +21,22 @@
       background: #12060b;
     }
 
-    .background {
-      position: fixed;
-      inset: 0;
-      background:
-        linear-gradient(
-          rgba(20, 3, 10, 0.62),
-          rgba(20, 3, 10, 0.82)
-        ),
-        url("IMG_20260821_123033_759.jpg") center/cover no-repeat;
-      z-index: -2;
-      transform: scale(1.03);
-    }
+.background {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(
+      rgba(20, 3, 10, 0.30),
+      rgba(20, 3, 10, 0.40)
+    ),
+    url("IMG-20260713-WA0045.jpg") center/cover no-repeat;
+  z-index: -2;
+}
 
-    .blur {
-      position: fixed;
-      inset: 0;
-      backdrop-filter: blur(3px);
-      -webkit-backdrop-filter: blur(3px);
-      z-index: -1;
-    }
+.blur {
+  display: none;
+}
+    
 
     .container {
       min-height: 100vh;
