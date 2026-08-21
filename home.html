@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Benedict & Chiyere ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+      background: #12060b;
+      overflow-x: hidden;
+    }
+
+    .background {
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(
+          rgba(18, 3, 10, 0.70),
+          rgba(18, 3, 10, 0.94)
+        ),
+        url("assets/images/couple.jpg") center/cover no-repeat;
+      z-index: -2;
+    }
+
+    .blur {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      z-index: -1;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      width: 100%;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(20, 5, 12, 0.62);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .logout-btn {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border-radius: 12px;
+      padding: 9px 13px;
+      cursor: pointer;
+    }
+
+    .logout-btn:hover {
+      background: rgba(255,255,255,0.14);
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 35px 20px 60px;
+    }
+
+    .welcome {
+      text-align: center;
+      margin-bottom: 35px;
+      animation: fadeUp 0.8s ease;
+    }
+
+    .welcome-heart {
+      font-size: 45px;
+      animation: heartbeat 1.8s infinite;
+      margin-bottom: 12px;
+    }
+
+    .welcome p {
+      opacity: 0.75;
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+    .welcome h1 {
+      font-size: 31px;
+      line-height: 1.25;
+    }
+
+    .welcome h1 span {
+      color: #ff8fb4;
+    }
+
+    /* =========================
+       GLASS CARDS
+    ========================= */
+
+    .glass {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+    }
+
+    /* =========================
+       COUPLE
+    ========================= */
+
+    .couple-card {
+      padding: 28px 20px;
+      text-align: center;
+      border-radius: 25px;
+      margin-bottom: 25px;
+      animation: fadeUp 1s ease;
+    }
+
+    .couple-photo {
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.8);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+      margin-bottom: 15px;
+    }
+
+    .couple-card h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .couple-card p {
+      opacity: 0.7;
+      font-size: 13px;
+    }
+
+    /* =========================
+       COUNTDOWN
+    ========================= */
+
+    .countdown-section {
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 13px;
+    }
+
+    .countdown-card {
+      padding: 23px 15px;
+      border-radius: 22px;
+    }
+
+    .countdown-subtitle {
+      text-align: center;
+      opacity: 0.7;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .time-box {
+      text-align: center;
+      padding: 14px 5px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .time-number {
+      font-size: 25px;
+      font-weight: 700;
+      color: #ff9bbb;
+    }
+
+    .time-label {
+      display: block;
+      margin-top: 4px;
+      font-size: 10px;
+      opacity: 0.6;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* =========================
+       FEATURES
+    ========================= */
+
+    .features-section {
+      margin-top: 10px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .feature {
+      padding: 24px 18px;
+      border-radius: 21px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      text-decoration: none;
+      transition: 0.25s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      cursor: pointer;
+    }
+
+    .feature:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.13);
+    }
+
+    .feature-icon {
+      font-size: 29px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .feature p {
+      font-size: 12px;
+      opacity: 0.6;
+      line-height: 1.4;
+    }
+
+    /* =========================
+       MUSIC
+    ========================= */
+
+    .music-card {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .music-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .music-card p {
+      font-size: 12px;
+      opacity: 0.6;
+      margin-bottom: 15px;
+    }
+
+    .music-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .music-controls button {
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      background: #e91e63;
+      color: white;
+      font-size: 19px;
+      cursor: pointer;
+    }
+
+    /* =========================
+       FEATURE PANELS
+    ========================= */
+
+    .feature-panel {
+      display: none;
+      margin-top: 25px;
+      border-radius: 25px;
+      overflow: hidden;
+    }
+
+    .feature-panel.active {
+      display: block;
+      animation: fadeUp 0.35s ease;
+    }
+
+    .panel-header {
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .panel-header h2 {
+      font-size: 18px;
+    }
+
+    .close-panel {
+      width: 35px;
+      height: 35px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      color: white;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    .panel-content {
+      padding: 20px;
+    }
+
+    /* =========================
+       CHAT
+    ========================= */
+
+    .chat-box {
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .empty-chat {
+      margin: auto;
+      text-align: center;
+      opacity: 0.5;
+      line-height: 1.7;
+      font-size: 13px;
+    }
+
+    .message-row {
+      display: flex;
+      width: 100%;
+    }
+
+    .message-row.mine {
+      justify-content: flex-end;
+    }
+
+    .message-row.theirs {
+      justify-content: flex-start;
+    }
+
+    .message-bubble {
+      max-width: 78%;
+      padding: 10px 13px;
+      border-radius: 17px;
+      background: rgba(255,255,255,0.10);
+      word-break: break-word;
+    }
+
+    .mine .message-bubble {
+      background: rgba(233,30,99,0.75);
+      border-bottom-right-radius: 5px;
+    }
+
+    .theirs .message-bubble {
+      border-bottom-left-radius: 5px;
+    }
+
+    .message-text {
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .message-time {
+      display: block;
+      font-size: 9px;
+      opacity: 0.55;
+      margin-top: 5px;
+      text-align: right;
+    }
+
+    .message-photo {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 12px;
+      display: block;
+      cursor: pointer;
+    }
+
+    .chat-input-area {
+      padding: 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .chat-input-row {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .chat-input {
+      flex: 1;
+      min-width: 0;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.07);
+      color: white;
+      outline: none;
+    }
+
+    .chat-input::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .chat-button {
+      width: 43px;
+      height: 43px;
+      flex-shrink: 0;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      color: white;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    .send-button {
+      background: #e91e63;
+    }
+
+    #photoInput {
+      display: none;
+    }
+
+    .chat-status {
+      min-height: 17px;
+      font-size: 11px;
+      opacity: 0.65;
+      padding-top: 4px;
+    }
+
+    /* =========================
+       CALLS
+    ========================= */
+
+    .call-card {
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .call-photo {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.7);
+      margin-bottom: 15px;
+    }
+
+    .call-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .call-card p {
+      font-size: 13px;
+      opacity: 0.6;
+      margin-bottom: 22px;
+    }
+
+    .call-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .call-button {
+      border: none;
+      padding: 13px 18px;
+      border-radius: 15px;
+      color: white;
+      background: #e91e63;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .call-button.video {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .call-notice {
+      margin-top: 18px;
+      font-size: 12px;
+      opacity: 0.55;
+      line-height: 1.5;
+    }
+
+    /* =========================
+       ACTIVE CALL UI
+    ========================= */
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 350px;
+      margin: 20px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #050505;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .remote-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #050505;
+    }
+
+    .local-video {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      width: 120px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 14px;
+      background: #111;
+      border: 2px solid rgba(255,255,255,0.8);
+    }
+
+    .active-call-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .call-control {
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .call-control:hover {
+      transform: scale(1.05);
+      background: rgba(255,255,255,0.18);
+    }
+
+    .call-control.end-call {
+      background: #e53935;
+      transform: rotate(135deg);
+    }
+
+    .incoming-call {
+      margin-top: 25px;
+      padding: 25px 18px;
+      border-radius: 22px;
+      background: rgba(233,30,99,0.14);
+      border: 1px solid rgba(255,143,180,0.2);
+      text-align: center;
+    }
+
+    .incoming-icon {
+      font-size: 42px;
+      margin-bottom: 10px;
+      animation: heartbeat 1.2s infinite;
+    }
+
+    .incoming-call h3 {
+      margin-bottom: 7px;
+    }
+
+    .incoming-call p {
+      font-size: 13px;
+      opacity: 0.65;
+      margin-bottom: 20px;
+    }
+
+    .incoming-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .call-button.reject {
+      background: #b71c1c;
+    }
+
+    .call-status-active {
+      color: #ff9bbb;
+      font-weight: 600;
+    }
+
+    @media (max-width: 430px) {
+      .video-container {
+        height: 280px;
+      }
+
+      .local-video {
+        width: 90px;
+        height: 120px;
+      }
+    }
+
+    /* =========================
+       MEMORIES
+    ========================= */
+
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .memory-placeholder {
+      min-height: 150px;
+      border-radius: 17px;
+      background: rgba(255,255,255,0.07);
+      border: 1px dashed rgba(255,255,255,0.16);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px;
+      font-size: 12px;
+      opacity: 0.65;
+    }
+
+    /* =========================
+       LOVE NOTES
+    ========================= */
+
+    .love-note {
+      padding: 25px;
+      border-radius: 20px;
+      background: rgba(233,30,99,0.14);
+      border: 1px solid rgba(255,143,180,0.18);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .love-note .big-heart {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .love-note p {
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .love-note small {
+      display: block;
+      margin-top: 15px;
+      opacity: 0.55;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      text-align: center;
+      margin-top: 35px;
+      font-size: 12px;
+      opacity: 0.45;
+    }
+
+    /* =========================
+       HEARTS
+    ========================= */
+
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      pointer-events: none;
+      opacity: 0;
+      animation: floatHeart 8s linear infinite;
+      z-index: -1;
+    }
+
+    .heart.one {
+      left: 8%;
+    }
+
+    .heart.two {
+      left: 35%;
+      animation-delay: 3s;
+    }
+
+    .heart.three {
+      left: 70%;
+      animation-delay: 5s;
+    }
+
+    .heart.four {
+      left: 88%;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.12);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) scale(0.7);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 0.5;
+      }
+
+      80% {
+        opacity: 0.25;
+      }
+
+      100% {
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+      }
+    }
+
+    @media (min-width: 700px) {
+      .features {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .memory-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 430px) {
+      main {
+        padding: 28px 14px 50px;
+      }
+
+      .countdown {
+        gap: 7px;
+      }
+
+      .time-number {
+        font-size: 21px;
+      }
+
+      .welcome h1 {
+        font-size: 27px;
+      }
+
+      .chat-box {
+        height: 470px;
+      }
+
+      .message-bubble {
+        max-width: 85%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="background"></div>
+  <div class="blur"></div>
+
+  <!-- Floating hearts -->
+  <div class="heart one">❤️</div>
+  <div class="heart two">💕</div>
+  <div class="heart three">💗</div>
+  <div class="heart four">❤️</div>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <div class="logo">
+      Benedict ❤️ Chiyere
+    </div>
+
+    <button
+      class="logout-btn"
+      id="logoutBtn"
+    >
+      Logout
+    </button>
+
+  </header>
+
+  <main>
+
+    <!-- =========================
+         WELCOME
+    ========================== -->
+
+    <section class="welcome">
+
+      <div class="welcome-heart">
+        ❤️
+      </div>
+
+      <p>
+        Welcome to our little world
+      </p>
+
+      <h1>
+        Benedict <span>&</span> Chiyere
+      </h1>
+
+    </section>
+
+    <!-- =========================
+         COUPLE CARD
+    ========================== -->
+
+    <section class="couple-card glass">
+
+      <img
+        src="assets/images/couple.jpg"
+        alt="Benedict and Chiyere"
+        class="couple-photo"
+      >
+
+      <h2>
+        Just You & Me ❤️
+      </h2>
+
+      <p>
+        A little place made for the two of us.
+      </p>
+
+    </section>
+
+    <!-- =========================
+         COUNTDOWN
+    ========================== -->
+
+    <section class="countdown-section">
+
+      <h2 class="section-title">
+        ❤️ Our Journey
+      </h2>
+
+      <div class="countdown-card glass">
+
+        <p class="countdown-subtitle">
+          We've been together for
+        </p>
+
+        <div class="countdown">
+
+          <div class="time-box">
+            <span
+              class="time-number"
+              id="days"
+            >0</span>
+
+            <span class="time-label">
+              Days
+            </span>
+          </div>
+
+          <div class="time-box">
+            <span
+              class="time-number"
+              id="hours"
+            >0</span>
+
+            <span class="time-label">
+              Hours
+            </span>
+          </div>
+
+          <div class="time-box">
+            <span
+              class="time-number"
+              id="minutes"
+            >0</span>
+
+            <span class="time-label">
+              Minutes
+            </span>
+          </div>
+
+          <div class="time-box">
+            <span
+              class="time-number"
+              id="seconds"
+            >0</span>
+
+            <span class="time-label">
+              Seconds
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         FEATURES
+    ========================== -->
+
+    <section class="features-section">
+
+      <h2 class="section-title">
+        Our Space ❤️
+      </h2>
+
+      <div class="features">
+
+        <!-- CHAT -->
+
+        <button
+          class="feature"
+          data-panel="chatPanel"
+        >
+
+          <div class="feature-icon">
+            💬
+          </div>
+
+          <h3>
+            Our Chat
+          </h3>
+
+          <p>
+            Talk, send messages, photos and voice notes.
+          </p>
+
+        </button>
+
+        <!-- CALL -->
+
+        <button
+          class="feature"
+          data-panel="callPanel"
+        >
+
+          <div class="feature-icon">
+            📞
+          </div>
+
+          <h3>
+            Call Us
+          </h3>
+
+          <p>
+            Voice and video calls just for us.
+          </p>
+
+        </button>
+
+        <!-- MEMORIES -->
+
+        <button
+          class="feature"
+          data-panel="memoriesPanel"
+        >
+
+          <div class="feature-icon">
+            📸
+          </div>
+
+          <h3>
+            Memories
+          </h3>
+
+          <p>
+            Keep our favorite moments together.
+          </p>
+
+        </button>
+
+        <!-- LOVE NOTES -->
+
+        <button
+          class="feature"
+          data-panel="lovePanel"
+        >
+
+          <div class="feature-icon">
+            💌
+          </div>
+
+          <h3>
+            Love Notes
+          </h3>
+
+          <p>
+            Leave something special for each other.
+          </p>
+
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         CHAT PANEL
+    ========================== -->
+
+    <section
+      class="feature-panel glass"
+      id="chatPanel"
+    >
+
+      <div class="panel-header">
+
+        <h2>
+          💬 Benedict ❤️ Chiyere
+        </h2>
+
+        <button
+          class="close-panel"
+          data-close="chatPanel"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <div class="panel-content">
+
+        <div class="chat-box">
+
+          <div
+            class="messages"
+            id="messages"
+          >
+
+            <div
+              class="empty-chat"
+              id="emptyChat"
+            >
+              ❤️<br>
+              This is your little space.<br>
+              Send your first message.
+            </div>
+
+          </div>
+
+          <div class="chat-input-area">
+
+            <div class="chat-input-row">
+
+              <button
+                class="chat-button"
+                id="photoBtn"
+                title="Send photo"
+              >
+                📷
+              </button>
+
+              <input
+                type="file"
+                id="photoInput"
+                accept="image/*"
+              >
+
+              <input
+                class="chat-input"
+                id="messageInput"
+                type="text"
+                placeholder="Write something..."
+                autocomplete="off"
+              >
+
+              <button
+                class="chat-button send-button"
+                id="sendBtn"
+              >
+                ➤
+              </button>
+
+            </div>
+
+            <div
+              class="chat-status"
+              id="chatStatus"
+            ></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         CALL PANEL
+    ========================== -->
+
+    <section
+      class="feature-panel glass"
+      id="callPanel"
+    >
+
+      <div class="panel-header">
+
+        <h2>
+          📞 Our Calls
+        </h2>
+
+        <button
+          class="close-panel"
+          data-close="callPanel"
+          type="button"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <div class="panel-content">
+
+        <div class="call-card">
+
+          <img
+            src="assets/images/couple.jpg"
+            class="call-photo"
+            id="callPhoto"
+            alt="Benedict and Chiyere"
+          >
+
+          <h3 id="callTitle">
+            Just You & Me ❤️
+          </h3>
+
+          <p id="callStatus">
+            Start a private call.
+          </p>
+
+          <!-- CALL BUTTONS -->
+
+          <div
+            class="call-buttons"
+            id="startCallButtons"
+          >
+
+            <button
+              class="call-button"
+              id="voiceCallBtn"
+              type="button"
+            >
+              📞 Voice Call
+            </button>
+
+            <button
+              class="call-button video"
+              id="videoCallBtn"
+              type="button"
+            >
+              📹 Video Call
+            </button>
+
+          </div>
+
+          <!-- =========================
+               VIDEO AREA
+          ========================== -->
+
+          <div
+            class="video-container"
+            id="videoContainer"
+            style="display:none;"
+          >
+
+            <video
+              id="remoteVideo"
+              class="remote-video"
+              autoplay
+              playsinline
+            ></video>
+
+            <video
+              id="localVideo"
+              class="local-video"
+              autoplay
+              muted
+              playsinline
+            ></video>
+
+          </div>
+
+          <!-- Remote audio for voice calls -->
+
+          <audio
+            id="remoteAudio"
+            autoplay
+          ></audio>
+
+          <!-- =========================
+               ACTIVE CALL CONTROLS
+          ========================== -->
+
+          <div
+            class="active-call-controls"
+            id="activeCallControls"
+            style="display:none;"
+          >
+
+            <button
+              class="call-control"
+              id="muteCallBtn"
+              type="button"
+            >
+              🎤
+            </button>
+
+            <button
+              class="call-control"
+              id="cameraCallBtn"
+              type="button"
+            >
+              📹
+            </button>
+
+            <button
+              class="call-control end-call"
+              id="endCallBtn"
+              type="button"
+            >
+              ☎️
+            </button>
+
+          </div>
+
+          <!-- =========================
+               INCOMING CALL
+          ========================== -->
+
+          <div
+            class="incoming-call"
+            id="incomingCall"
+            style="display:none;"
+          >
+
+            <div class="incoming-icon">
+              📞
+            </div>
+
+            <h3>
+              Incoming Call ❤️
+            </h3>
+
+            <p id="incomingCallText">
+              Someone is calling you...
+            </p>
+
+            <div class="incoming-buttons">
+
+              <button
+                class="call-button"
+                id="answerCallBtn"
+                type="button"
+              >
+                ✅ Answer
+              </button>
+
+              <button
+                class="call-button reject"
+                id="rejectCallBtn"
+                type="button"
+              >
+                ❌ Reject
+              </button>
+
+            </div>
+
+          </div>
+
+          <div
+            class="call-notice"
+            id="callNotice"
+          >
+            Calls use your microphone and, for video,
+            your camera. Your browser will ask for permission.
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         MEMORIES PANEL
+    ========================== -->
+
+    <section
+      class="feature-panel glass"
+      id="memoriesPanel"
+    >
+
+      <div class="panel-header">
+
+        <h2>
+          📸 Our Memories
+        </h2>
+
+        <button
+          class="close-panel"
+          data-close="memoriesPanel"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <div class="panel-content">
+
+        <div class="memory-grid">
+
+          <div class="memory-placeholder">
+            📸<br><br>
+            Your first memory
+          </div>
+
+          <div class="memory-placeholder">
+            ❤️<br><br>
+            A beautiful moment
+          </div>
+
+          <div class="memory-placeholder">
+            🥰<br><br>
+            Our favorite day
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         LOVE NOTES PANEL
+    ========================== -->
+
+    <section
+      class="feature-panel glass"
+      id="lovePanel"
+    >
+
+      <div class="panel-header">
+
+        <h2>
+          💌 Love Notes
+        </h2>
+
+        <button
+          class="close-panel"
+          data-close="lovePanel"
+        >
+          ✕
+        </button>
+
+      </div>
+
+      <div class="panel-content">
+
+        <div class="love-note">
+
+          <div class="big-heart">
+            ❤️
+          </div>
+
+          <p>
+            "Whatever happens, I want you to know
+            that meeting you and sharing this bond
+            with you means something special to me."
+          </p>
+
+          <small>
+            — Benedict ❤️
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         MUSIC
+    ========================== -->
+
+    <section class="music-card glass">
+
+      <h3>
+        🎵 Our Song
+      </h3>
+
+      <p>
+        The song that belongs to us.
+      </p>
+
+      <div class="music-controls">
+
+        <button
+          id="musicBtn"
+          type="button"
+        >
+          ▶️
+        </button>
+
+      </div>
+
+      <audio
+        id="ourSong"
+        loop
+      >
+
+        <source
+          src="assets/music/our-song.mp3"
+          type="audio/mpeg"
+        >
+
+      </audio>
+
+    </section>
+
+    <footer>
+      Made with ❤️ for Benedict & Chiyere
+    </footer>
+
+  </main>
+
+  <!-- External JavaScript -->
+  <script type="module" src="./home.js"></script>
+
+</body>
+        </html>
