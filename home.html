@@ -2095,40 +2095,261 @@ Put it underneath your existing ".call-notice" CSS.
 
 
     // ==========================================
-    // CALL BUTTONS
-    // ==========================================
+// CALL SYSTEM
+// ==========================================
 
-    document
-      .getElementById(
-        "voiceCallBtn"
-      )
-      .addEventListener(
-        "click",
-        () => {
+const voiceCallBtn =
+  document.getElementById("voiceCallBtn");
 
-          alert(
-            "Voice calling will be connected next ❤️"
-          );
+const videoCallBtn =
+  document.getElementById("videoCallBtn");
 
-        }
+const endCallBtn =
+  document.getElementById("endCallBtn");
+
+const muteCallBtn =
+  document.getElementById("muteCallBtn");
+
+const cameraCallBtn =
+  document.getElementById("cameraCallBtn");
+
+const startCallButtons =
+  document.getElementById("startCallButtons");
+
+const activeCallControls =
+  document.getElementById("activeCallControls");
+
+const videoContainer =
+  document.getElementById("videoContainer");
+
+const callStatus =
+  document.getElementById("callStatus");
+
+
+// ==========================================
+// VOICE CALL
+// ==========================================
+
+voiceCallBtn.addEventListener(
+  "click",
+  async () => {
+
+    try {
+
+      callStatus.textContent =
+        "Starting voice call... 📞";
+
+      voiceCallBtn.disabled = true;
+      videoCallBtn.disabled = true;
+
+      await startVoiceCall();
+
+      startCallButtons.style.display =
+        "none";
+
+      activeCallControls.style.display =
+        "flex";
+
+      callStatus.textContent =
+        "Voice call connected... ❤️";
+
+    } catch (error) {
+
+      console.error(
+        "Voice call error:",
+        error
       );
 
+      callStatus.textContent =
+        error.message ||
+        "Could not start voice call.";
 
-    document
-      .getElementById(
-        "videoCallBtn"
-      )
-      .addEventListener(
-        "click",
-        () => {
+      voiceCallBtn.disabled = false;
+      videoCallBtn.disabled = false;
 
-          alert(
-            "Video calling will be connected next ❤️"
-          );
+    }
 
-        }
+  }
+);
+
+
+// ==========================================
+// VIDEO CALL
+// ==========================================
+
+videoCallBtn.addEventListener(
+  "click",
+  async () => {
+
+    try {
+
+      callStatus.textContent =
+        "Starting video call... 📹";
+
+      voiceCallBtn.disabled = true;
+      videoCallBtn.disabled = true;
+
+      await startVideoCall();
+
+      startCallButtons.style.display =
+        "none";
+
+      activeCallControls.style.display =
+        "flex";
+
+      videoContainer.style.display =
+        "block";
+
+      callStatus.textContent =
+        "Video call connected... ❤️";
+
+    } catch (error) {
+
+      console.error(
+        "Video call error:",
+        error
       );
 
+      callStatus.textContent =
+        error.message ||
+        "Could not start video call.";
+
+      voiceCallBtn.disabled = false;
+      videoCallBtn.disabled = false;
+
+    }
+
+  }
+);
+
+
+// ==========================================
+// END CALL
+// ==========================================
+
+endCallBtn.addEventListener(
+  "click",
+  () => {
+
+    endCall();
+
+    startCallButtons.style.display =
+      "flex";
+
+    activeCallControls.style.display =
+      "none";
+
+    videoContainer.style.display =
+      "none";
+
+    voiceCallBtn.disabled = false;
+    videoCallBtn.disabled = false;
+
+    callStatus.textContent =
+      "Call ended. ❤️";
+
+  }
+);
+
+
+// ==========================================
+// MUTE MICROPHONE
+// ==========================================
+
+let microphoneMuted = false;
+
+muteCallBtn.addEventListener(
+  "click",
+  () => {
+
+    const stream =
+      getLocalStream();
+
+    if (!stream) {
+      return;
+    }
+
+
+    const audioTracks =
+      stream.getAudioTracks();
+
+
+    if (audioTracks.length === 0) {
+      return;
+    }
+
+
+    microphoneMuted =
+      !microphoneMuted;
+
+
+    audioTracks.forEach(
+      (track) => {
+
+        track.enabled =
+          !microphoneMuted;
+
+      }
+    );
+
+
+    muteCallBtn.textContent =
+      microphoneMuted
+        ? "🔇"
+        : "🎤";
+
+  }
+);
+
+
+// ==========================================
+// CAMERA ON / OFF
+// ==========================================
+
+let cameraDisabled = false;
+
+cameraCallBtn.addEventListener(
+  "click",
+  () => {
+
+    const stream =
+      getLocalStream();
+
+    if (!stream) {
+      return;
+    }
+
+
+    const videoTracks =
+      stream.getVideoTracks();
+
+
+    if (videoTracks.length === 0) {
+      return;
+    }
+
+
+    cameraDisabled =
+      !cameraDisabled;
+
+
+    videoTracks.forEach(
+      (track) => {
+
+        track.enabled =
+          !cameraDisabled;
+
+      }
+    );
+
+
+    cameraCallBtn.textContent =
+      cameraDisabled
+        ? "🚫"
+        : "📹";
+
+  }
+);
 
     // ==========================================
     // MUSIC
