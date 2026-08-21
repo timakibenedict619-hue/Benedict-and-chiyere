@@ -43,7 +43,7 @@ import {
 // Do NOT put her email here.
 // This must be the Firebase Authentication UID.
 
-const PARTNER_UID = "PUT_CHIYERE_FIREBASE_UID_HERE";
+const PARTNER_UID = "0Gs3wSpLBYXpWuUIoWMu1baU1xy1";
 
 
 // ============================================================
